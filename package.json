@@ -1,0 +1,14 @@
+{
+  "name": "setap23-24_coursework",
+  "version": "1.0.0",
+  "description": "Members\r UP2122177 — JamesWicks01\r UP2113294 — bennnnnnwest\r UP2154598 — fl720\r UP2106696 — GeorgeLazos\r UP2104647 — up2104647\r UP2111821 — nabmat",
+  "main": "login-system.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
