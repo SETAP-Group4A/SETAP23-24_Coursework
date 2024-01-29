@@ -46,10 +46,29 @@ function SignUp() {
     console.log('SignUp Complete');
 }
 
+function Login() {
+    let email;
+    let password;
+    while(true) {
+        email = prompt('Enter your email address:');
+        password = prompt('Enter your password:');
+        if (email === null) {
+            break;
+        } else if (email === "test@test.com" && password === "Password1!") {
+            console.log('Login Complete');
+            break;
+        } else {
+            console.log('Email/Password is incorrect. Please try again.');
+        }
+    }
+    console.log('Login Successful');
+}
+
 function systemStart() {
     const question = prompt('Are you an existing user? [y/n]');
     if (question == 'y') {
         console.log('Loading Login System ...');
+        Login();
     } else if (question == 'n') {
         console.log('Loading SignUp System ...');
         SignUp();
