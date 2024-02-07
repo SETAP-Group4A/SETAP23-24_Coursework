@@ -17,7 +17,7 @@
             height: 100vh;
         }
 
-        form {
+        section {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -63,38 +63,42 @@
 </head>
 <body>
 
-    <form id="login-form">
+    <section id="login-form">
         <h2>Login</h2>
         <label for="login-email">Email Address:</label>
-        <input type="text" id="login-email" name="login-email">
+        <input type="text" id="login-email-input" name="login-email">
 
         <label for="login-password">Password:</label>
-        <input type="password" id="login-password" name="login-password">
+        <input type="password" id="login-password-input" name="login-password">
 
         <button id="loginbutton">Login</button>
+
+        <p class="switch-form" style="color: red;" id="login-error"></p>
 
         <div class="switch-form">
             <p>Don't have an account? <a href="#" onclick="switchForm('signup-form')">Sign up</a></p>
         </div>
-    </form>
+    </section>
 
-    <form id="signup-form" style="display: none;">
+    <section id="signup-form" style="display: none;">
         <h2>Sign up</h2>
         <label for="signup-name">Name:</label>
-        <input type="text" id="signup-name" name="signup-name">
+        <input type="text" id="signup-name-input" name="signup-name">
 
         <label for="signup-email">Email Address:</label>
-        <input type="text" id="signup-email" name="signup-email">
+        <input type="text" id="signup-email-input" name="signup-email">
 
         <label for="signup-password">Password:</label>
-        <input type="password" id="signup-password" name="signup-password">
+        <input type="password" id="signup-password-input" name="signup-password">
 
         <button id="signupbutton">Sign up</button>
+
+        <p class="switch-form" style="color: red;" id="signup-error"></p>
 
         <div class="switch-form">
             <p>Already have an account? <a href="#" onclick="switchForm('login-form')">Login</a></p>
         </div>
-    </form>
+    </section>
 
     <script>
         function switchForm(formId) {

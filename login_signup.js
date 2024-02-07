@@ -12,24 +12,46 @@ function validatePassword(password) {
 }
 
 function signup() {
-    let name = document.querySelector("#signup-name");
-    let email = document.querySelector("#signup-email");
-    let password = document.querySelector("#signup-password");
+    let name = document.querySelector("#signup-name-input").value;
+    let email = document.querySelector("#signup-email-input").value;
+    let password = document.querySelector("#signup-password-input").value;
+    let errorText = document.querySelector("#signup-error");
 
-    if (name.trim() === "" || email.trim() === "" || password.trim() === "") {
-        alert('Please fill in all fields for signup.');
-        return false;
+    if(name === "" || email === "" || password === "") {
+        errorText.textContent = 'Please fill in all fields';
+    } else if (validateEmail(email) === false) {
+        errorText.textContent = 'Please fill in a valid email';
+    } else if (validatePassword(password) === false) {
+        errorText.textContent = 'Please fill in a valid password';
+    } else {
+        let UserDetails = {
+            name: name,
+            email: email,
+            password: password
+        };
+        localStorage.setItem('UserDetails', JSON.stringify(UserDetails));
+        console.log('Stored Data Successfully');
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location = 'dashboard.html';
     }
 
 }
 
 function login() {
-    let email = document.querySelector("#login-email");
-    let password = document.querySelector("#login-password");
+    let email = document.querySelector("#login-email-input").value;
+    let password = document.querySelector("#login-password-input").value;
+    let errorText = document.querySelector("#login-error");
 
-    if (email.trim() === "" || password.trim() === "") {
-        alert('Please fill in all fields for login.');
-        return false;
+    let storedData = localStorage.getItem('UserDetails');
+    let storedUserData = JSON.parse(storedData);
+
+    if(email === "" || password === "") {
+        errorText.textContent = 'Please fill in all fields';
+    } else if (email === storedUserData.email && password === storedUserData.password) {
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location = 'dashboard.html';
+    } else {
+        errorText.textContent = 'Invalid email or password.';
     }
 }
 
