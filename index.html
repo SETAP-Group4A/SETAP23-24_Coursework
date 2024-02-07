@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login/Signup Page</title>
+    <script src="login_signup.js"></script>
+    <title>Study Planner</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -70,7 +71,7 @@
         <label for="login-password">Password:</label>
         <input type="password" id="login-password" name="login-password">
 
-        <button type="submit">Login</button>
+        <button id="loginbutton">Login</button>
 
         <div class="switch-form">
             <p>Don't have an account? <a href="#" onclick="switchForm('signup-form')">Sign up</a></p>
@@ -88,7 +89,7 @@
         <label for="signup-password">Password:</label>
         <input type="password" id="signup-password" name="signup-password">
 
-        <button type="submit">Sign up</button>
+        <button id="signupbutton">Sign up</button>
 
         <div class="switch-form">
             <p>Already have an account? <a href="#" onclick="switchForm('login-form')">Login</a></p>
