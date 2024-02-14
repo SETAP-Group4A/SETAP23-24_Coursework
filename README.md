@@ -19,7 +19,7 @@ To run google calender api
 For the website do the following command
 npm start
 After this has been done it can be located on a web browser of your choice with the link
-[click here](localhost:3000)
+localhost:3000
 
 To open calender directly via terminal do 
 node index.js
