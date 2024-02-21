@@ -12,9 +12,9 @@ function validatePassword(password) {
 }
 
 function signup() {
-    let name = document.querySelector("#signup-name-input").value;
-    let email = document.querySelector("#signup-email-input").value;
-    let password = document.querySelector("#signup-password-input").value;
+    let name = document.querySelector("#signup-name").value;
+    let email = document.querySelector("#signup-email").value;
+    let password = document.querySelector("#signup-password").value;
     let errorText = document.querySelector("#signup-error");
 
     if(name === "" || email === "" || password === "") {
@@ -38,8 +38,8 @@ function signup() {
 }
 
 function login() {
-    let email = document.querySelector("#login-email-input").value;
-    let password = document.querySelector("#login-password-input").value;
+    let email = document.querySelector("#login-email").value;
+    let password = document.querySelector("#login-password").value;
     let errorText = document.querySelector("#login-error");
 
     let storedData = localStorage.getItem('UserDetails');

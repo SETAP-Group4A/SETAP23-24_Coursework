@@ -13,11 +13,5 @@ function signout() {
     window.location = '/';
 }
 
-function init() {
-    const SignOutButton = document.querySelector('#signout');
-    SignOutButton.addEventListener('click', signout);
-}
-
 window.addEventListener('load', checkLoggedIn);
-window.addEventListener('load', init);
 
