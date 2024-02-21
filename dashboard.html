@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="dashboard.js"></script>
+    <title>Study Planner</title>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Study Planner</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);" onclick="signout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container mt-4">
+    <div class="row">
+        <!-- Calendar Section -->
+        <div class="col-md-8">
+            <h2>Study Calendar</h2>
+            <!-- You can integrate a calendar library here (e.g., FullCalendar) -->
+            <!-- For simplicity, a placeholder div is used here -->
+            <div id="calendar-placeholder" style="height: 400px; border: 1px solid #ccc;"></div>
+        </div>
+
+        <!-- Task List Section -->
+        <div class="col-md-4">
+            <h2>Task List</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Read Chapter 1</li>
+                <li class="list-group-item">Complete Math Assignment</li>
+                <li class="list-group-item">Prepare for History Exam</li>
+                <!-- Add more tasks as needed -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap and jQuery Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Additional scripts for calendar library if used -->
+<!-- <script src="path/to/calendar/library.js"></script> -->
+
+</body>
+</html>
+
