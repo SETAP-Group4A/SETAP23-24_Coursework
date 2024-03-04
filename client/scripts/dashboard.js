@@ -13,5 +13,17 @@ function signout() {
     window.location = '/';
 }
 
+function LoadCalender() {
+    let calendarEl = document.getElementById('calendar');
+    let calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'timeGridWeek',
+        contentHeight: 600
+    });
+    calendar.render();
+}
+
 window.addEventListener('load', checkLoggedIn);
+window.addEventListener('load', LoadCalender);
+
+
 
