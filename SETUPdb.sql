@@ -2,6 +2,7 @@
 -- may need to add more tables or attributes later when we know what actually needs to be stored
 -- dont know how to store password properly might need to do that
 create database setup;
+\c setup;
 
 create table account (
     account_id SERIAL PRIMARY KEY,
