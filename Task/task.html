@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" conent="width=device-width, initial-scale=1.0">
+
+        <title>Task</title>
+
+        <link rel="stylesheet" href="task.css">
+        <script src="task.js"></script>
+    </head>
+    <body>
+        <form>
+
+            <div>
+                <!-- Title -->
+                <input type="text" id="title" name="title" placeholder="Enter Task Name">
+            </div>
+
+
+            <br>
+
+
+            <div>
+                <!-- Date -->
+                <label for="date">Input Date</label>
+                <br>
+                <input type="date" id="date" name="date"> 
+            </div>
+
+
+            <br>
+
+            <div>
+                <!-- Start Time -->
+                <label for="startTime">Task Start     </label>
+                <br>
+                <input type="time" id="startTime" name="startTime">
+            </div>
+
+            <br>
+
+            <div>
+                <!-- End Time -->
+                <label for="endTime">Task End</label>
+                <br>
+                <input type="time" id="endTime" name="endTime">
+            </div>
+
+            <br>
+            
+            <div>
+                <!-- Priority Level -->
+                <label for="title">Priority</label>
+            </div>
+            <br>
+            <div>    
+                <label for="prHigh">High</label>
+                <input type="radio" class="pr" id="prHigh" name="prLvl" value="prHigh">
+                <br>
+                <label for="prMedium">Medium</label>
+                <input type="radio" class="pr" id="prMedium" name="prLvl" value="prMedium">
+                <br>
+                <label for="prLow">Low</label>
+                <input type="radio" class="pr" id="prLow" name="prLvl" value="prLow">
+            </div>
+
+            <br>
+
+            <div><!-- description -->
+                <label for="desc">Description</label>
+                <br>
+                <input type="text" id="desc" name="desc" placeholder="Enter text ...">
+            </div>
+
+            <br>
+
+            <div>
+                <input type="submit">
+            </div>
+
+        </form>
+
+    </body>
+
+</html>
