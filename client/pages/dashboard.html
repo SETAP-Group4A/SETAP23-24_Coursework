@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Study Planner</title>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Study Planner</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);" onclick="signout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container mt-4">
+    <div id="calendar"></div>
+
+    <!-- Button for Adding Event -->
+    <button type="button" class="btn btn-primary fixed-bottom fixed-right" data-toggle="modal" data-target="#addEventModal">
+        Add Task
+    </button>
+
+    <!-- Modal for Adding Event -->
+    <div class="modal fade" id="addEventModal" tabindex="-1" role="dialog" aria-labelledby="addEventModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addEventModalLabel">Add Task</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addTaskForm">
+                        <div class="form-group">
+                            <label for="taskName">Name</label>
+                            <input type="text" class="form-control" id="taskName" placeholder="Enter Task Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="taskPriority">Priority</label>
+                            <select class="form-control" id="taskPriority" aria-label="Default select example">
+                                <option selected>Select Priority</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskDate">Date</label>
+                            <input type="date" class="form-control" id="taskDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="taskStartTime">Start Time</label>
+                            <input type="time" class="form-control" id="taskStartTime">
+                        </div>
+                        <div class="form-group">
+                            <label for="taskEndTime">End Time</label>
+                            <input type="time" class="form-control" id="taskEndTime">
+                        </div>
+                        <div class="form-group">
+                            <label for="taskDesc">Description</label>
+                            <input type="text" class="form-control" id="taskDesc">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="addTask()">Save Task</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Bootstrap and jQuery Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Additional scripts for calendar library if used -->
+<script src="../scripts/dashboard.js"></script>
+<script src="../scripts/addtask.js"></script>
+
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+
+
+</body>
+</html>
