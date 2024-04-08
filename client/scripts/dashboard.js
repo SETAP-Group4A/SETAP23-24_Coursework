@@ -13,6 +13,12 @@ function signout() {
     window.location = '/';
 }
 
+function changeDashboardTitle() {
+  let userDetails = JSON.parse(localStorage.getItem("UserDetails"));
+  let TitleComponent = document.querySelector('#dashboard-title');
+  TitleComponent.textContent = `${userDetails.name} Study Planner`;
+}
+
 function LoadCalendar() {
     // Set the desired width and height for the calendar
     const calendarWidth = '100%';
@@ -54,6 +60,6 @@ function LoadCalendar() {
 
 window.addEventListener('load', checkLoggedIn);
 window.addEventListener('load', LoadCalendar);
-
+window.addEventListener('load', changeDashboardTitle);
 
 
