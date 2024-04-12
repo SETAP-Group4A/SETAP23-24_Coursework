@@ -11,9 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "fullcalendar": "^6.1.11",
-    "sqlite3": "^5.1.7",
-    "uuid": "^9.0.1"
+    "fullcalendar": "^6.1.11"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
