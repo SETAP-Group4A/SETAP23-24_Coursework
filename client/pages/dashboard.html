@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#" id="dashboard-title">[User's Name Here] Study Planner</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,17 +18,17 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Dashboard</a>
+                <a class="nav-link" href="javascript:void(0);" onclick="LoadDashboard()">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
+                <a class="nav-link" href="javascript:void(0);" onclick="LoadProfile()">Profile</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="javascript:void(0);" onclick="signout()">Logout</a>
             </li>
         </ul>
     </div>
-</nav>
+</nav> 
 
 <!-- Main Content -->
 <div class="container mt-4">
@@ -98,8 +98,10 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <!-- Additional scripts for calendar library if used -->
-<script src="../scripts/dashboard.js"></script>
+<script src="../scripts/dependencies.js"></script>
 <script src="../scripts/addtask.js"></script>
+<script src="../scripts/navbar.js"></script>
+<script src="../scripts/calendar.js"></script>
 
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
 
