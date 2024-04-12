@@ -5,6 +5,8 @@ function LoadCalendar() {
   const slotMinTime = "08:00:00"; // Example start time
   const slotMaxTime = "18:00:00"; // Example end time
 
+  let events = LoadTasks();
+
   let calendarEl = document.getElementById("calendar");
   let calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: "timeGridThreeDay",
@@ -17,6 +19,7 @@ function LoadCalendar() {
       center: "title",
       right: "timeGridThreeDay,timeGridWeek,dayGridMonth",
     },
+    events: events,
     views: {
       timeGridThreeDay: {
         type: "timeGrid",
@@ -34,6 +37,30 @@ function LoadCalendar() {
     },
   });
   calendar.render();
+  window.addEventListener('storage', function(e) {
+    if (e.key === 'tasks') {
+      calendar.removeAllEvents();
+      calendar.addEventSource(getEventsFromLocalStorage());
+    }
+  });
+}
+
+function LoadTasks() {
+  let events = [];
+      let storedTasks = localStorage.getItem('tasks');
+      if (storedTasks) {
+        let tasks = JSON.parse(storedTasks);
+        tasks.forEach(function(task) {
+          var event = {
+            title: task.name,
+            start: task.date + 'T' + task.startTime,
+            end: task.date + 'T' + task.endTime
+          };
+          events.push(event);
+        });
+      }
+      return events;
 }
 
 window.addEventListener("load", LoadCalendar);
+window.addEventListener("load", LoadTasks);
