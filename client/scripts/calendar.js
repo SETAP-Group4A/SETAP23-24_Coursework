@@ -37,12 +37,6 @@ function LoadCalendar() {
     },
   });
   calendar.render();
-  window.addEventListener('storage', function(e) {
-    if (e.key === 'tasks') {
-      calendar.removeAllEvents();
-      calendar.addEventSource(getEventsFromLocalStorage());
-    }
-  });
 }
 
 function LoadTasks() {
