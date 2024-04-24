@@ -18,7 +18,7 @@ function LoadSettings() {
 function ChangeTitle() {
   let userDetails = JSON.parse(localStorage.getItem("UserDetails"));
   let TitleComponent = document.querySelector("#dashboard-title");
-  TitleComponent.textContent = `${userDetails.name} Study Planner`;
+  TitleComponent.textContent = `${userDetails.name}'s Study Planner`;
 }
 
 window.addEventListener("load", ChangeTitle);
