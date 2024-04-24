@@ -20,6 +20,11 @@ app.get("/profile", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "client", "pages", "profile.html"));
 });
 
+app.get("/calenderapi", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "client", "pages", "calender.html"));
+});
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
+

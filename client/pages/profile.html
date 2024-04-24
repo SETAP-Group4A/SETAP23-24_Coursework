@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Study Planner</title>
+
+    <style>
+        /* Add custom styles here */
+        .profile-section {
+          padding: 20px;
+          background-color: #f8f9fa;
+          border-radius: 10px;
+          margin-bottom: 20px;
+        }
+      </style>
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -27,9 +37,31 @@
             </li>
         </ul>
     </div>
-</nav> 
-
-
+</nav>
+<!-- Main Content -->
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4">
+        <!-- Profile Info -->
+        <div class="profile-section">
+          <h3>Profile Info</h3>
+          <p id="profileName">Name: [Name Here]</p>
+          <p id="profileEmail">Email: [Email Here]</p>
+          <button type="button" class="btn btn-primary">Edit Profile</button>
+          <!-- Add more profile info here -->
+        </div>
+      </div>
+      <div class="col-md-8">
+        <!-- Settings -->
+        <div class="profile-section">
+          <h3>Settings</h3>
+          <p id="profileStudyStartTime">Study Start Time: [Time Here]</p>
+          <p id="profileStudyEndTime">Study End Time: [Time Here]</p>
+          <button type="button" class="btn btn-primary">Edit Settings</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <!-- Bootstrap and jQuery Scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
@@ -38,6 +70,7 @@
 <!-- Additional scripts -->
 <script src="../scripts/navbar.js"></script>
 <script src="../scripts/dependencies.js"></script>
+<script src="../scripts/profile.js"></script>
 
 </body>
 </html>
