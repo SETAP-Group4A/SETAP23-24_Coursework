@@ -1,19 +1,23 @@
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const path = require("path");
 
 const app = express();
-const port = 8080;
+const port = 3000;
 
 // Serve static files from the 'client' folder
-app.use(express.static(path.join(__dirname, '..', 'client')));
+app.use(express.static(path.join(__dirname, "..", "client")));
 
-// Route for the index.html page
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'pages', 'index.html'));
+// SERVER GET REQUESTS
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "client", "pages", "index.html"));
 });
 
-app.get('/dashboard', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'client', 'pages', 'dashboard.html'));
+app.get("/dashboard", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "client", "pages", "dashboard.html"));
+});
+
+app.get("/profile", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "client", "pages", "profile.html"));
 });
 
 app.listen(port, () => {

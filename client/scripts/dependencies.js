@@ -8,10 +8,4 @@ function checkLoggedIn() {
     }
 }
 
-function signout() {
-    localStorage.setItem('isLoggedIn', 'false');
-    window.location = '/';
-}
-
 window.addEventListener('load', checkLoggedIn);
-
