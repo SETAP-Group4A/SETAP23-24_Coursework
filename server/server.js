@@ -1,3 +1,4 @@
+import * as mb from '..database.js'
 const express = require("express");
 const path = require("path");
 
@@ -28,3 +29,16 @@ app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
 
+async function getUsers(req, res) {
+  const result = await mb.listUsers(req.params.id);
+  if (result) {
+    res.json(result);
+
+  } else {
+    res.status(404).send('No match found');
+  }
+}
+
+app.get('/users', getUsers);
+
+app.listen(3000);

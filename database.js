@@ -12,3 +12,18 @@ async function init() {
 }
 
 const dbOn = init();
+
+export async function listUsers() {
+    const db = await dbOn;
+    return db.all('SELECT * FROM users ORDER BY name');
+}
+
+export async function addUser(user) {
+    if (user.trim() = '') return listUsers();
+    const db = await dbOn;
+    const id = uuid();
+    await db.run('INSERT INTO USERS VALUES (?, ?, ?)', [id, msg, time]);
+
+    return listUsers();
+}
+
