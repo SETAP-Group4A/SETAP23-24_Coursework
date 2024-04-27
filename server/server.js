@@ -1,4 +1,4 @@
-import * as mb from '..database.js'
+import * as mb from '../database.js'
 const express = require("express");
 const path = require("path");
 
