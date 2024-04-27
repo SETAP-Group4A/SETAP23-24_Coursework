@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+path.resolve(__dirname, __filename)
 const app = express();
 const port = 3000;
 
@@ -45,4 +45,4 @@ async function getUsers(req, res) {
 
 app.get('/users', getUsers);
 
-app.listen(3000);
+app.listen(4000);
