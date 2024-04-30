@@ -1,5 +1,18 @@
 import sqlite3 from 'sqlite3';
 
+
+
+module.exports = {
+    development: {
+        client: 'sqlite3',
+        connection: {
+            filename: '../database.sqlite'
+        }
+    },
+}
+
+
+
 let db = new sqlite3.Database('/database.sqlite', sqlite3.OPEN_READWRITE, (err) => {
     if (err) {
         console.error(err.message);
