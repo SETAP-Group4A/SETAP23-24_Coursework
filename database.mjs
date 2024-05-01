@@ -2,14 +2,14 @@ import sqlite3 from 'sqlite3';
 
 
 
-module.exports = {
-    development: {
-        client: 'sqlite3',
-        connection: {
-            filename: '../database.sqlite'
-        }
-    },
-}
+// module.exports = {
+//     development: {
+//         client: 'sqlite3',
+//         connection: {
+//             filename: '../database.sqlite'
+//         }
+//     },
+// }
 
 
 
