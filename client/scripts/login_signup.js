@@ -64,3 +64,7 @@ function init() {
 }
 
 window.addEventListener('load', init);
+
+
+module.exports = {validateEmail, validatePassword};
+
