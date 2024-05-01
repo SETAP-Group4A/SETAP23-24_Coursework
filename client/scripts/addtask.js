@@ -15,7 +15,14 @@ function addTask(){
         desc
     })
 
-    document.getElementById("addTaskForm").reset();
+
+    if (!autoScheduler(newTask)) {
+        saveTaskToLocalStorage(newTask);
+        document.getElementById("addTaskForm").reset();
+      } else {
+        // Handle overlapping tasks
+        alert("The new task overlaps with existing tasks!");
+      }
 };
 
 function saveTaskToLocalStorage(task) {
