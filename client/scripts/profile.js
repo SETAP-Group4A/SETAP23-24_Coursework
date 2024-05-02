@@ -28,18 +28,26 @@ function EditProfileDetials() {
 
   ProfileEmail.innerHTML = 'Email: ';
   ProfileEmail.appendChild(emailInput);
-  
+
   let saveButton = document.createElement('button');
   saveButton.textContent = 'Save';
   saveButton.setAttribute('class', 'btn btn-primary'); 
   saveButton.onclick = function() {
-    if (validateEmail(emailInput.value)) {
+    if (nameInput.value.trim() !== '' && validateEmail(emailInput.value)) {
       saveProfile(nameInput.value, emailInput.value);
     } else {
-      let errorMessage = document.createElement('div');
-      errorMessage.textContent = 'Please fill in a valid email';
-      errorMessage.style.color = 'red';
-      ProfileEmail.appendChild(errorMessage);
+      if (nameInput.value.trim() === '') {
+        let nameErrorMessage = document.createElement('div');
+        nameErrorMessage.textContent = 'Please fill in a valid Name.';
+        nameErrorMessage.style.color = 'red';
+        ProfileName.appendChild(nameErrorMessage);
+      }
+      if (!validateEmail(emailInput.value)) {
+        let emailErrorMessage = document.createElement('div');
+        emailErrorMessage.textContent = 'Please enter a valid email address.';
+        emailErrorMessage.style.color = 'red';
+        ProfileEmail.appendChild(emailErrorMessage);
+      }
     }
   };
 
