@@ -12,7 +12,7 @@
     <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
     <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
-    
+
     <!--Return to the profile page-->
     <button onclick="window.location.href='profile'">Return To Profile</button>
 
@@ -120,40 +120,92 @@
                 document.getElementById('signout_button').style.visibility = 'hidden';
             }
         }
-
-        /**
-         * Print the summary and start datetime/date of the next ten events in
-         * the authorized user's calendar. If no events are found an
-         * appropriate message is printed.
-         */
         async function listUpcomingEvents() {
-            let response;
-            try {
-                const request = {
-                    'calendarId': 'primary',
-                    'timeMin': (new Date()).toISOString(),
-                    'showDeleted': false,
-                    'singleEvents': true,
-                    'maxResults': 10,
-                    'orderBy': 'startTime',
-                };
-                response = await gapi.client.calendar.events.list(request);
-            } catch (err) {
-                document.getElementById('content').innerText = err.message;
-                return;
-            }
+    let response;
+    try {
+        const request = {
+            'calendarId': 'primary',
+            'timeMin': (new Date()).toISOString(),
+            'showDeleted': false,
+            'singleEvents': true,
+            'maxResults': 10,
+            'orderBy': 'startTime',
+        };
+        response = await gapi.client.calendar.events.list(request);
+    } catch (err) {
+        document.getElementById('content').innerText = err.message;
+        return;
+    }
 
-            const events = response.result.items;
-            if (!events || events.length == 0) {
-                document.getElementById('content').innerText = 'No events found.';
-                return;
-            }
-            // Flatten to string to display
-            const output = events.reduce(
-                (str, event) => `${str}${event.summary} (${event.start.dateTime || event.start.date})\n`,
-                'Events:\n');
-            document.getElementById('content').innerText = output;
-        }
+    const events = response.result.items;
+    if (!events || events.length == 0) {
+        document.getElementById('content').innerText = 'No events found.';
+        return;
+    }
+
+    // Transform each event and save to local storage
+    events.forEach(event => {
+        const transformedEvent = transformEvent(event);
+        saveTask(transformedEvent);
+    });
+
+    // Display events
+    displayEvents(events);
+}
+
+/**
+ * Transform Google Calendar event object into the desired format.
+ * @param {Object} event Google Calendar event object.
+ * @returns {Object} Transformed event object.
+ */
+function transformEvent(event) {
+    const name = event.summary || 'Untitled';
+    const date = event.start.date || event.start.dateTime.substring(0, 10);
+    const startTime = event.start.dateTime ? event.start.dateTime.substring(11, 16) : '';
+    const endTime = event.end.dateTime ? event.end.dateTime.substring(11, 16) : '';
+    const desc = event.description || '';
+    
+    // Priority logic could be added here based on your requirements
+    // For simplicity, let's assume prio is not provided in Google Calendar events
+    const prio = ''; 
+
+    return {
+        name,
+        prio,
+        date,
+        startTime,
+        endTime,
+        desc
+    };
+}
+
+/**
+ * Save task to local storage.
+ * @param {Object} task Task object to save.
+ */
+function saveTask(task) {
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks.push(task);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+/**
+ * Display events fetched from Google Calendar API.
+ * @param {Array} events Array of events to display.
+ */
+function displayEvents(events) {
+    if (!events || events.length === 0) {
+        document.getElementById('content').innerText = 'No events found.';
+        return;
+    }
+
+    // Flatten to string to display
+    const output = events.reduce(
+        (str, event) => `${str}${event.summary} (${event.start.dateTime || event.start.date})\n`,
+        'Events:\n');
+    document.getElementById('content').innerText = output;
+}
+
     </script>
     <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
     <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
