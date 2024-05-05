@@ -11,7 +11,7 @@ function validatePassword(password) {
     return isLengthValid && hasUppercase && hasLowercase && hasDigit && hasSpecialCharacter;
 }
 
-module.exports = { validateEmail , validatePassword } ; 
+// module.exports = { validateEmail , validatePassword } ; 
 
 function signup() {
     let name = document.querySelector("#signup-name").value;
