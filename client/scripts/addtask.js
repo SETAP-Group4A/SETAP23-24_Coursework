@@ -6,6 +6,12 @@ function addTask(){
     let endTime = document.querySelector('#taskEndTime').value;
     let desc = document.querySelector('#taskDesc').value;
 
+
+    if (!name || !prio || !date || !startTime || !endTime || !desc) {
+        alert("All fields are required");
+        return;
+    }
+    
     saveTaskToLocalStorage({
         name,
         prio,
