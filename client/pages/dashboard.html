@@ -34,7 +34,16 @@
 <div class="container mt-4">
     <div id="calendar"></div>
 
-    <!-- Modal for Event Details -->
+    <!-- Window to display tasks -->
+    <dialog id = "details">
+        <h1 id = "detailsName"></h1>
+        <p id = "detailsPriority"></p>
+        <p id = "detailsDate"></p>
+        <p id = "detailsStartTime"></p>
+        <p id = "detailsEndTime"></p>
+        <p id = "detailsDesc"></p>
+        <button id = "detailsClose">Close</button>
+    </dialog>
 
     <!-- Button for Adding Event -->
     <button type="button" class="btn btn-primary fixed-bottom fixed-right" data-toggle="modal" data-target="#addEventModal">

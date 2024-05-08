@@ -2,25 +2,27 @@ function displayTaskInfo(event) {
   //Code for going to smaller window
 
   //Get Handles
-  let taskName = document.getElementById('taskName');
-  let taskDate = document.getElementById('taskDate');
-  let taskStartTime = document.getElementById('taskStartTime');
-  let taskEndTime = document.getElementById('taskEndTime');
-  let taskPriority = document.getElementById('taskPriority');
-  let taskDesc = document.getElementById('taskDesc');
-  let back = document.getElementById('back');
-  back.addEventListener('click', () => {});
+  let details = document.querySelector('#details');
+  let taskName = document.querySelector('#detailsName');
+  let taskPriority = document.querySelector('#detailsPriority');
+  let taskDate = document.querySelector('#detailsDate');
+  let taskStart = document.querySelector('#detailsStartTime');
+  let taskEnd = document.querySelector('#detailsEndTime');
+  let taskDesc = document.querySelector('#detailsDesc');
+  let back = document.querySelector('#detailsClose');
 
-  //Set the values
   taskName.textContent = event.title;
-  taskDate.textContent = event.start;
-  taskStartTime.textContent = event.start;
-  taskEndTime.textContent = event.end;
-  taskPriority.textContent = event.backgroundColor;
-  taskDesc.textContent = event.desc;
+  taskPriority.textContent = `Priority: ${event.prio}`;
+  taskDate.textContent = `Date: ${event.date}`;
+  taskStart.textContent = `Starts: ${event.startForDisplay}`;
+  taskEnd.textContent = `Ends: ${event.endForDisplay}`;
+  taskDesc.textContent = `Notes: ${event.desc}`;
+
+  details.showModal();
+  back.addEventListener('click', () => {details.close()});
 }
 
-function LoadCalendar() {
+async function LoadCalendar() {
   // Set the desired width and height for the calendar
   const calendarWidth = "100%";
   const calendarHeight = "600px";
@@ -29,7 +31,7 @@ function LoadCalendar() {
 
   
 
-  let events = LoadTasks();
+  let events = await LoadTasks();
 
   let calendarEl = document.getElementById("calendar");
   let calendar = new FullCalendar.Calendar(calendarEl, {
@@ -80,8 +82,13 @@ function LoadTasks() {
       tasks.forEach(function(task) {
           let event = {
               title: task.name,
+              prio: task.prio,
+              date: task.date,
               start: task.date + 'T' + task.startTime,
-              end: task.date + 'T' + task.endTime
+              end: task.date + 'T' + task.endTime,
+              desc: task.desc,
+              startForDisplay: task.startTime,
+              endForDisplay: task.endTime
           };
 
           // Check if priority is defined for the task
@@ -97,4 +104,7 @@ function LoadTasks() {
 }
 
 window.addEventListener("load", LoadCalendar);
-window.addEventListener("load", LoadTasks);
+
+// loadTasks called twice
+//Date needs to be pre selected
+// task doesnt have all the info
