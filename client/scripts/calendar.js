@@ -26,9 +26,6 @@ async function LoadCalendar() {
   // Set the desired width and height for the calendar
   const calendarWidth = "100%";
   const calendarHeight = "600px";
-  //const slotMinTime = "08:00:00"; // Example start time
-  //const slotMaxTime = "18:00:00"; // Example end time
-
   
 
   let events = await LoadTasks();
@@ -38,8 +35,6 @@ async function LoadCalendar() {
     initialView: "timeGridThreeDay",
     height: calendarHeight,
     width: calendarWidth,
-    //slotMinTime: slotMinTime,
-    //slotMaxTime: slotMaxTime,
     headerToolbar: {
       left: "prev,next",
       center: "title",

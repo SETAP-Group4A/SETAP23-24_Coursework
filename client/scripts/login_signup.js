@@ -11,13 +11,15 @@ function validatePassword(password) {
     return isLengthValid && hasUppercase && hasLowercase && hasDigit && hasSpecialCharacter;
 }
 
+// module.exports = { validateEmail , validatePassword } ; 
+
 function signup() {
     let name = document.querySelector("#signup-name").value;
     let email = document.querySelector("#signup-email").value;
     let password = document.querySelector("#signup-password").value;
     let errorText = document.querySelector("#signup-error");
 
-    if(name === "" || email === "" || password === "") {
+    if (name === "" || email === "" || password === "") {
         errorText.textContent = 'Please fill in all fields';
     } else if (validateEmail(email) === false) {
         errorText.textContent = 'Please fill in a valid email';
@@ -45,7 +47,7 @@ function login() {
     let storedData = localStorage.getItem('UserDetails');
     let storedUserData = JSON.parse(storedData);
 
-    if(email === "" || password === "") {
+    if (email === "" || password === "") {
         errorText.textContent = 'Please fill in all fields';
     } else if (email === storedUserData.email && password === storedUserData.password) {
         localStorage.setItem('isLoggedIn', 'true');

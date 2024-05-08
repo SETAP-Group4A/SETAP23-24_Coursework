@@ -47,17 +47,22 @@
           <h3>Profile Info</h3>
           <p id="profileName">Name: [Name Here]</p>
           <p id="profileEmail">Email: [Email Here]</p>
-          <button type="button" class="btn btn-primary">Edit Profile</button>
+          <button id="editProfileButton" type="button" class="btn btn-primary" onclick="EditProfileDetials()">Edit Profile</button>
           <!-- Add more profile info here -->
         </div>
       </div>
-      <div class="col-md-8">
+      <!-- <div class="col-md-8"> -->
         <!-- Settings -->
-        <div class="profile-section">
+        <!-- <div class="profile-section">
           <h3>Settings</h3>
           <p id="profileStudyStartTime">Study Start Time: [Time Here]</p>
           <p id="profileStudyEndTime">Study End Time: [Time Here]</p>
           <button type="button" class="btn btn-primary">Edit Settings</button>
+        </div> -->
+                <!--Adding google calendar events  -->
+        <div class="profile-section">
+          <h3>Add Your Google Calandar Events</h3>
+          <button type="button" class="btn btn-primary" onclick="window.location.href='calenderapi'">Add</button>
         </div>
       </div>
     </div>
